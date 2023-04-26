@@ -29,7 +29,7 @@ class HelloCallableTaskTwo implements Callable<String>{
 }
 public class ThreadPoolWithCallableDemoTwo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
 		ExecutorService threadPool=Executors.newFixedThreadPool(3);
 		
@@ -39,6 +39,9 @@ public class ThreadPoolWithCallableDemoTwo {
 		System.out.println("=====================");
 		Future<String> result3=threadPool.submit(new HelloCallableTaskTwo("Task3"));
 		System.out.println("Hi");
+		
+		System.out.println(result1.get());
+		
 	}
 
 }
